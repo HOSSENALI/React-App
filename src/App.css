@@ -1,10 +1,38 @@
-.App {
-  margin: 10px;
-  display: flex;
-  justify-content: space-between;
+
+
+nav {
+ 
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+ul{
+   list-style-type: none;
+}
+li {
+  float: left;
 }
 
-.red{
-  background-color: red;
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
+li a:hover {
+  background-color: rgb(61, 187, 69);
+}
+
+.home{
+  margin-top: 30px;
+}
+.search{
+  margin: 0px 20px 20px 0px;
+text-align: end;
+}

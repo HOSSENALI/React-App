@@ -1,5 +1,6 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table'
+import { Link } from 'react-router-dom';
 const CountryTable = ({ countries }) => {
     return (
         <Table striped bordered hover>
@@ -13,15 +14,19 @@ const CountryTable = ({ countries }) => {
             </thead>
             <tbody>
                 {countries.map((country) => (
-                    <tr>
+                    <tr key={country.name.common}>
                         <td>{country.flag}</td>
-                        <td>{country.name.common}</td>
+                        <td>
+                            <Link to={`/details/${country.name.common}`}>
+                                {country.name.common}
+                            </Link>
+                        </td>
                         <td>{country.population}</td>
                         <td>{country.region}</td>
                     </tr>
                 ))}
 
-                
+
             </tbody>
         </Table>
     );
