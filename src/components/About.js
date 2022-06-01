@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { memo } from 'react'
 const About = () => {
-    return ( <h1>About</h1> );
+    console.log("about");
+    return (<h1>About</h1>);
 }
- 
-export default About;
+//memo can prevent unnecessary rendering
+export default memo(About);

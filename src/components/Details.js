@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 const Details = () => {
     const { name } = useParams();
     const [countries, setCountries] = useState([]);
-    const [filteredData, setFiltereddata] = useState("");
+   
     useEffect(() => {
         fetch("https://restcountries.com/v3.1/all")
             .then((response) => response.json())
@@ -12,9 +12,6 @@ const Details = () => {
 
     }, []);
 
-    // countries.filter((country) => country.name.common === name))
-    //         console.log(country);
-    // }
     return (
         <div>
             {countries.filter((country) => country.name.common === name).map(filteredCountry => (

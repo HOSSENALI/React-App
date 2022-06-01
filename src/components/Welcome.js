@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { memo } from 'react'
 const Welocme = () => {
-    return ( <h1>Welcome to my channel.......</h1> );
+    console.log("welcome is redering");
+    return (<h1>Welcome to my channel.......</h1>);
 }
- 
-export default Welocme;
+
+export default memo(Welocme); //memo can prevent unnecessary rendering

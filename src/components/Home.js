@@ -1,39 +1,24 @@
-
 import '../App.css';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
-// import Table from 'react-bootstrap/Table'
 import CountryTable from './CountryTable';
 import Search from './Search';
+import CountryData from './CountryData';
 function Home() {
-    const [countries, setCountries] = useState([]);
+
     const [keyword, setKeyword] = useState("");
-    const [filteredData,setFiltereddata]=useState([]);
+    const [filteredData] = CountryData(keyword);
 
-    useEffect(() => {
-        fetch("https://restcountries.com/v3.1/all")
-            .then((response) => response.json())
-            .then((data) =>{ 
-                setCountries(data);
-                setFiltereddata(data);
-            })
-        
-    }, []);
-
-    const handleChange = (e) => {
+    const handleChange = useCallback((e) => {
         setKeyword(e.target.value);
-        let filteredData = countries.filter((country) => {
-            return (
-                country.name.common
-                    .toLowerCase()
-                    .search(keyword.toLocaleLowerCase()) != -1);
-        });
-        setFiltereddata(filteredData);
-    };
+        console.log("serach");
+    },[keyword]);
     return (
         <div className='home'>
-            <div className='search'><Search value={keyword} handleChange={handleChange} countries={countries}  /></div>
-            <CountryTable  countries={filteredData} />
+            <div className='search'>
+                <Search value={keyword} handleChange={handleChange} />
+            </div>
+            <CountryTable countries={filteredData} />
         </div>
 
 
